@@ -4,17 +4,13 @@ import android.os.Handler
 import android.os.Looper
 import java.util.concurrent.Executor
 
-object MainThreadExecutor : Executor {
-
-    val handle by lazy {
-        Handler(Looper.getMainLooper())
-    }
+class MainExecutor(private val mainHandle: Handler) : Executor {
 
     val isMainThread: Boolean
-        get() = Looper.myLooper() == handle.looper
+        get() = Looper.myLooper() == mainHandle.looper
 
     override fun execute(command: Runnable) {
-        handle.post(command)
+        mainHandle.post(command)
     }
 
     fun assertMainThread(methodName: String) {

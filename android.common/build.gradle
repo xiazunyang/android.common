@@ -9,7 +9,6 @@ version = '1.0.0'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 21
@@ -37,5 +36,4 @@ android {
 
 dependencies {
     compileOnly 'androidx.core:core-ktx:1.6.0'
-    implementation('androidx.startup:startup-runtime:1.0.0')
 }

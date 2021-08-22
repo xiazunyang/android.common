@@ -1,4 +1,4 @@
-package com.numeron.android
+package cn.numeron.android
 
 import android.net.Uri
 import android.os.Build

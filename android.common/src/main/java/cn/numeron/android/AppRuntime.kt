@@ -1,4 +1,4 @@
-package com.numeron.android
+package cn.numeron.android
 
 import android.content.Context
 import android.os.Handler
@@ -17,7 +17,7 @@ object AppRuntime {
 
     val handle: Handler
         get() {
-            if (!::gHandle.isInitialized) {
+            if (!AppRuntime::gHandle.isInitialized) {
                 gHandle = Handler(Looper.getMainLooper())
             }
             return gHandle
@@ -25,20 +25,20 @@ object AppRuntime {
 
     val mainExecutor: MainExecutor
         get() {
-            if (!::gMainExecutor.isInitialized) {
+            if (!AppRuntime::gMainExecutor.isInitialized) {
                 gMainExecutor = MainExecutor(handle)
             }
             return gMainExecutor
         }
 
     fun init(context: Context) {
-        if (!::gContext.isInitialized) {
+        if (!AppRuntime::gContext.isInitialized) {
             gContext = GlobalContext(context)
         }
-        if (!::gHandle.isInitialized) {
+        if (!AppRuntime::gHandle.isInitialized) {
             gHandle = Handler(context.mainLooper)
         }
-        if (!::gMainExecutor.isInitialized) {
+        if (!AppRuntime::gMainExecutor.isInitialized) {
             gMainExecutor = MainExecutor(gHandle)
         }
     }

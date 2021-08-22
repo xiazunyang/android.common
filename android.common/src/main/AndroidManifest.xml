@@ -1,27 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.numeron.android">
+    package="cn.numeron.android">
 
     <application>
 
         <provider
-            android:name="com.numeron.android.InitialFileProvider"
+            android:name=".NumeronFileProvider"
             android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge">
-            <meta-data
-                android:name="com.numeron.android.Initializer"
-                android:value="androidx.startup" />
         </provider>
 
     </application>

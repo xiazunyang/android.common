@@ -5,7 +5,7 @@ import androidx.core.content.FileProvider
 open class NumeronFileProvider : FileProvider() {
 
     override fun onCreate(): Boolean {
-        AppRuntime.init(requireContext())
+        AppRuntime.init(context!!)
         return super.onCreate()
     }
 
